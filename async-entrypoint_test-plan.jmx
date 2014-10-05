@@ -36,7 +36,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/passpartu/1.0/availability/pan/7171002000059596</stringProp>
+          <stringProp name="HTTPSampler.path">/api/passpartu/1.0/availability/pan/{pan}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -45,6 +45,7 @@
           <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">tytn-restful-async-entrypoint - GDORestService.availability</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -63,7 +64,56 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;accountBarcode&quot;:&quot;7171002000059596&quot;,&quot;deviceCode&quot;:&quot;10005763&quot;,&quot;ticketsNumber&quot;:&quot;7&quot;,&quot;totalAmount&quot;:&quot;8,50&quot;}</stringProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;accountBarcode&quot;:&quot;7171002000059596&quot;,&#xd;
+	&quot;deviceCode&quot;:&quot;10005763&quot;,&#xd;
+	&quot;ticketsNumber&quot;:&quot;7&quot;,&#xd;
+	&quot;totalAmount&quot;:&quot;8,50&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${passpartu.host}</stringProp>
+          <stringProp name="HTTPSampler.port">${passpartu.port}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/passpartu/1.0/customers/lunchTickets/accountBarcode/spend</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">tytn-restful-async-entrypoint - GDORestService.accountBarcodeSpend</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST - Spesa con Dynamic Carnet" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;accountBarcode&quot;:&quot;88014331400703583958&quot;,&#xd;
+	&quot;deviceCode&quot;:&quot;10005763&quot;,&#xd;
+	&quot;ticketsNumber&quot;:&quot;7&quot;,&#xd;
+	&quot;totalAmount&quot;:&quot;10,90&quot;&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -94,43 +144,14 @@
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST - Spesa con Dynamic Carnet" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;accountBarcode&quot;:&quot;88014331400703583958&quot;,&quot;deviceCode&quot;:&quot;10005763&quot;,&quot;ticketsNumber&quot;:&quot;7&quot;,&quot;totalAmount&quot;:&quot;10,90&quot;}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${passpartu.host}</stringProp>
-          <stringProp name="HTTPSampler.port">${passpartu.port}</stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/passpartu/1.0/customers/lunchTickets/accountBarcode/spend</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+            <stringProp name="TestPlan.comments">Generazione dell&apos;accountBarcode</stringProp>
+            <stringProp name="cacheKey"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script"></stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223PreProcessor>
           <hashTree/>
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="TicketCartaceo" enabled="true"/>
@@ -172,6 +193,12 @@
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="EXTRAC-transactionCode" enabled="true">
+              <stringProp name="VAR">transactionCode</stringProp>
+              <stringProp name="JSONPATH">$.transactionCode</stringProp>
+              <stringProp name="DEFAULT"></stringProp>
+            </com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+            <hashTree/>
           </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST - Storno del Ticket cartaceo" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -179,7 +206,15 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;transactionCode&quot;:&quot;000000000000009489&quot;,&quot;locationCode&quot;:&quot;002995&quot;,&quot;deviceCode&quot;:&quot;55&quot;,&quot;timeStamp&quot;:&quot;20130220154522&quot;,&quot;operationNumber&quot;:&quot;1&quot;,&quot;issuerCode&quot;:&quot;QNFS&quot;,&quot;codeTermType&quot;:&quot;C&quot;}</stringProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;transactionCode&quot;:&quot;${transactionCode}&quot;,&#xd;
+	&quot;locationCode&quot;:&quot;002995&quot;,&#xd;
+	&quot;deviceCode&quot;:&quot;55&quot;,&#xd;
+	&quot;timeStamp&quot;:&quot;20130220154522&quot;,&#xd;
+	&quot;operationNumber&quot;:&quot;1&quot;,&#xd;
+	&quot;issuerCode&quot;:&quot;QNFS&quot;,&#xd;
+	&quot;codeTermType&quot;:&quot;C&quot;&#xd;
+}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -234,6 +269,12 @@
               <stringProp name="Argument.name">tickets</stringProp>
               <stringProp name="Argument.value">${__BeanShell(source(&quot;function.bsh&quot;))}</stringProp>
               <stringProp name="Argument.desc">e&apos; un esempio di esecuzione di uno script da file.</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="pan" elementType="Argument">
+              <stringProp name="Argument.name">pan</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.desc">TODO: variare il pan in base ad una lista di pan disponibili</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
